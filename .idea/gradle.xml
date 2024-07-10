@@ -22,7 +22,11 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/clients_api" />
+            <option value="$PROJECT_DIR$/sources" />
+            <option value="$PROJECT_DIR$/sources/features" />
+            <option value="$PROJECT_DIR$/sources/features/clients_api" />
+            <option value="$PROJECT_DIR$/sources/features/contact_reader" />
+            <option value="$PROJECT_DIR$/sources/features/permissions_getter" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
