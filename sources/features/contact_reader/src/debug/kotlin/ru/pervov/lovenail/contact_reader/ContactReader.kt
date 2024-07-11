@@ -6,6 +6,7 @@ import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ru.pervov.lovenail.clients_api.models.Client
+import java.util.UUID
 
 private const val TAG = "[ContactReader]"
 
@@ -35,7 +36,8 @@ class ContactReader {
                         Client(
                             name = name,
                             phoneNumber = phoneNumber,
-                            id = name + phoneNumber
+                            id = UUID.randomUUID().toString(),
+                            comment = emptyList()
                         )
                     )
                 }
