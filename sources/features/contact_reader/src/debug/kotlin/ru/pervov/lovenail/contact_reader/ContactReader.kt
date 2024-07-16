@@ -37,7 +37,7 @@ class ContactReader {
                             name = name,
                             phoneNumber = phoneNumber,
                             id = UUID.randomUUID().toString(),
-                            comment = emptyList()
+                            commentId = emptyList()
                         )
                     )
                 }

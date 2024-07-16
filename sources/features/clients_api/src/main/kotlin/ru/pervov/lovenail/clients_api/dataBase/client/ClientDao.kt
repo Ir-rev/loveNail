@@ -1,4 +1,4 @@
-package ru.pervov.lovenail.clients_api.dataBase
+package ru.pervov.lovenail.clients_api.dataBase.client
 
 import androidx.room.Dao
 import androidx.room.Delete

@@ -21,6 +21,15 @@ dependencyResolutionManagement {
 
 rootProject.name = "loveNail"
 include(":app")
+
+// client
 include(":sources:features:clients_api")
+include(":sources:features:client_list_screen")
+include(":sources:features:client_create_screen")
+
+// contact reader
 include(":sources:features:contact_reader")
+
+// utils
 include(":sources:features:permissions_getter")
+include(":sources:features:utils")

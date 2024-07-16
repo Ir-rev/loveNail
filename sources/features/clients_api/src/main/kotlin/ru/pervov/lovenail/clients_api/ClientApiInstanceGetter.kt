@@ -1,7 +1,6 @@
 package ru.pervov.lovenail.clients_api
 
-import ru.pervov.lovenail.clients_api.dataBase.ClientDataBaseGetter
-import ru.pervov.lovenail.clients_api.dataBase.ClientDataBaseSetting
+import ru.pervov.lovenail.clients_api.dataBase.utils.DataBaseSetting
 import ru.pervov.lovenail.clients_api.dataBase.DataBaseHolder
 import ru.pervov.lovenail.clients_api.repository.ClientsRepository
 import ru.pervov.lovenail.clients_api.repository.ClientsRepositoryImpl
@@ -12,7 +11,7 @@ class ClientApiInstanceGetter private constructor() {
         return ClientsRepositoryImpl.getInstance()
     }
 
-    fun getClientDataBaseSetting(): ClientDataBaseSetting {
+    fun getClientDataBaseSetting(): DataBaseSetting {
         return getDataBaseHolder()
     }
 
