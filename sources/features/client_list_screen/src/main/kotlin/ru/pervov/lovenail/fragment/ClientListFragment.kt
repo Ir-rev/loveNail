@@ -14,6 +14,8 @@ import ru.pervov.lovenail.client_list_screen.databinding.FragmentClientListBindi
 import ru.pervov.lovenail.view_model.ClientListViewModel
 import ru.pervov.lovenail.view_model.ClientListViewModelFactory
 import ru.pervov.lovenail.view_model.ClientListViewModelState
+import ru.pervov.utils.NavigationAction
+import ru.pervov.utils.NavigationHolder
 
 class ClientListFragment : Fragment() {
 
@@ -61,7 +63,7 @@ class ClientListFragment : Fragment() {
             }
         }
         binding.addClientImageView.setOnClickListener {
-
+            (activity as? NavigationHolder)?.doNavigation(NavigationAction.OpenCreateClient())
         }
     }
 }

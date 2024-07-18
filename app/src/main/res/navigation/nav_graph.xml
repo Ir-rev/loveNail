@@ -6,21 +6,27 @@
 
     <fragment
         android:id="@+id/hostFragment"
-        android:name="ru.pervov.lovenail.HostFragment"
-        android:label="Хост">
-        <action
-            android:id="@+id/action_hostFragment_to_clientListFragment"
-            app:destination="@id/clientListFragment"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
+        android:name="ru.pervov.lovenail.HostFragment">
     </fragment>
 
 
     <fragment
         android:id="@+id/clientListFragment"
-        android:name="ru.pervov.lovenail.fragment.ClientListFragment"
-        android:label="Хост">
+        android:name="ru.pervov.lovenail.fragment.ClientListFragment">
     </fragment>
+
+    <fragment
+        android:id="@+id/clientCreateFragment"
+        android:name="ru.pervov.client_create_screen.fragment.ClientCreateFragment">
+
+    </fragment>
+    <action
+        android:id="@+id/action_global_clientListFragment"
+        app:destination="@id/clientListFragment"
+        app:popUpTo="@id/nav_graph" />
+    <action
+        android:id="@+id/action_global_clientCreateFragment"
+        app:destination="@id/clientCreateFragment" />
 
 
 </navigation>

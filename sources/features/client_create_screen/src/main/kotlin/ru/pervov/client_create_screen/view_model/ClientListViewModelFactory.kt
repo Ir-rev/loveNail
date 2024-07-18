@@ -7,7 +7,11 @@ import ru.pervov.lovenail.clients_api.ClientApiInstanceGetter
 class ClientListViewModelFactory : ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ClientCreateViewModel(ClientApiInstanceGetter.getInstance().getClientsRepository()) as T
+        return ClientCreateViewModel(
+            ClientApiInstanceGetter
+                .getInstance()
+                .getClientsRepository()
+        ) as T
     }
 
 }

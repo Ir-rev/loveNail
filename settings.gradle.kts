@@ -32,4 +32,5 @@ include(":sources:features:contact_reader")
 
 // utils
 include(":sources:features:permissions_getter")
+include(":sources:features:navigation")
 include(":sources:features:utils")

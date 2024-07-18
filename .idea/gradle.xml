@@ -28,6 +28,7 @@
             <option value="$PROJECT_DIR$/sources/features/client_list_screen" />
             <option value="$PROJECT_DIR$/sources/features/clients_api" />
             <option value="$PROJECT_DIR$/sources/features/contact_reader" />
+            <option value="$PROJECT_DIR$/sources/features/navigation" />
             <option value="$PROJECT_DIR$/sources/features/permissions_getter" />
             <option value="$PROJECT_DIR$/sources/features/utils" />
           </set>
