@@ -17,6 +17,8 @@ import ru.pervov.client_create_screen.view_model.ClientCreateViewModel
 import ru.pervov.client_create_screen.view_model.ClientListViewModelFactory
 import ru.pervov.lovenail.client_create_screen.databinding.FragmentClientCreateBinding
 
+const val CLIENT_ID = "CLIENT_ID"
+
 class ClientCreateFragment : Fragment() {
 
     private var viewModel: ClientCreateViewModel? = null
@@ -26,7 +28,7 @@ class ClientCreateFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(
             this,
-            ClientListViewModelFactory()
+            ClientListViewModelFactory(arguments?.getString(CLIENT_ID))
         )[ClientCreateViewModel::class.java]
     }
 
@@ -62,6 +64,8 @@ class ClientCreateFragment : Fragment() {
                             ).show()
                         }
                     }
+
+                    is ClientCreateAction.ClientCreatedOrUpdate -> activity?.onBackPressed()
                 }
             }
         }

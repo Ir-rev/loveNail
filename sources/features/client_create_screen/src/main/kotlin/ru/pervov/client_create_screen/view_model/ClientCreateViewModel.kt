@@ -11,11 +11,13 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ru.pervov.client_create_screen.adapter.CreateClientItem
+import ru.pervov.lovenail.clients_api.models.Client
 import ru.pervov.lovenail.clients_api.repository.ClientsRepository
 import java.util.UUID
 
 class ClientCreateViewModel(
-    private val clientsRepository: ClientsRepository
+    private val clientsRepository: ClientsRepository,
+    private val clientId: String?
 ) : ViewModel() {
 
     private val _state: MutableStateFlow<List<CreateClientItem>> = MutableStateFlow(emptyList())
@@ -29,32 +31,37 @@ class ClientCreateViewModel(
     }
 
     private fun initCreateClientItemList() {
-        val itemList = mutableListOf<CreateClientItem>()
-        itemList.add(
-            CreateClientItem.NameInput(
-                id = UUID.randomUUID().toString(),
-                sequenceNumber = itemList.size
+        viewModelScope.launch(Dispatchers.IO) {
+            val client = clientId?.let { clientsRepository.getClientById(it) }
+            val itemList = mutableListOf<CreateClientItem>()
+            itemList.add(
+                CreateClientItem.NameInput(
+                    id = UUID.randomUUID().toString(),
+                    sequenceNumber = itemList.size,
+                    name = client?.name
+                )
             )
-        )
-        itemList.add(
-            CreateClientItem.PhoneInput(
-                id = UUID.randomUUID().toString(),
-                sequenceNumber = itemList.size
+            itemList.add(
+                CreateClientItem.PhoneInput(
+                    id = UUID.randomUUID().toString(),
+                    sequenceNumber = itemList.size,
+                    phoneNumber = client?.phoneNumber
+                )
             )
-        )
-        itemList.add(
-            CreateClientItem.WearTimeInput(
-                id = UUID.randomUUID().toString(),
-                sequenceNumber = itemList.size
+            itemList.add(
+                CreateClientItem.WearTimeInput(
+                    id = UUID.randomUUID().toString(),
+                    sequenceNumber = itemList.size,
+                    wearTime = client?.wearTime
+                )
             )
-        )
-        itemList.add(
-            CreateClientItem.PriceInput(
-                id = UUID.randomUUID().toString(),
-                sequenceNumber = itemList.size
+            itemList.add(
+                CreateClientItem.PriceInput(
+                    id = UUID.randomUUID().toString(),
+                    sequenceNumber = itemList.size,
+                    price = client?.price
+                )
             )
-        )
-        viewModelScope.launch {
             _state.emit(itemList)
         }
     }
@@ -62,17 +69,44 @@ class ClientCreateViewModel(
     fun createClient() {
         viewModelScope.launch(Dispatchers.IO) {
             val itemsList = _state.value
-            if (itemsList.filterIsInstance<CreateClientItem.PhoneInput>()
-                    .firstOrNull()?.phoneNumber?.length != 18
-            ) {
-                _action.emit(ClientCreateAction.ShowToast("Ввиди номер телефона"))
-                return@launch
-            }
+            if (validateFields(itemsList).not()) return@launch
+
             val name = itemsList.filterIsInstance<CreateClientItem.NameInput>().firstOrNull()?.name
-            if (name.isNullOrBlank()) {
-                _action.emit(ClientCreateAction.ShowToast("Ввиди имя"))
-                return@launch
+            val phone =
+                itemsList.filterIsInstance<CreateClientItem.PhoneInput>().firstOrNull()?.phoneNumber
+            val price =
+                itemsList.filterIsInstance<CreateClientItem.PriceInput>().firstOrNull()?.price
+            val wearTime =
+                itemsList.filterIsInstance<CreateClientItem.WearTimeInput>().firstOrNull()?.wearTime
+
+            val client = Client(
+                id = clientId ?: UUID.randomUUID().toString(),
+                name = name ?: "",
+                phoneNumber = phone ?: "",
+                price = price ?: 0,
+                wearTime = wearTime ?: 0
+            )
+            if (clientId == null) {
+                clientsRepository.addClient(client)
+            } else {
+                clientsRepository.updateClient(client)
             }
+            _action.emit(ClientCreateAction.ClientCreatedOrUpdate())
         }
+    }
+
+    private suspend fun validateFields(itemsList: List<CreateClientItem>): Boolean {
+        if (itemsList.filterIsInstance<CreateClientItem.PhoneInput>()
+                .firstOrNull()?.phoneNumber?.length != 18
+        ) {
+            _action.emit(ClientCreateAction.ShowToast("Ввиди номер телефона"))
+            return false
+        }
+        val name = itemsList.filterIsInstance<CreateClientItem.NameInput>().firstOrNull()?.name
+        if (name.isNullOrBlank()) {
+            _action.emit(ClientCreateAction.ShowToast("Ввиди имя"))
+            return false
+        }
+        return true
     }
 }

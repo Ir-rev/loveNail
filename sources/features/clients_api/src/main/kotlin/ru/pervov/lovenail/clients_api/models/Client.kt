@@ -9,6 +9,8 @@ data class Client(
     @PrimaryKey val id: String,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "phoneNumber") val phoneNumber: String,
+    @ColumnInfo(name = "price") val price: Int,
+    @ColumnInfo(name = "wearTime") val wearTime: Int,
 )
 
 @Entity

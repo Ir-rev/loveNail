@@ -1,7 +1,9 @@
 package ru.pervov.lovenail
 
 import android.app.Activity
+import android.os.Bundle
 import androidx.navigation.Navigation
+import ru.pervov.client_create_screen.fragment.CLIENT_ID
 import ru.pervov.utils.NavigationAction
 import ru.pervov.utils.NavigationHolder
 
@@ -20,7 +22,9 @@ class NavigationHolderImpl(
             }
 
             is NavigationAction.OpenCreateClient -> {
-                navigation.navigate(R.id.action_global_clientCreateFragment)
+                navigation.navigate(R.id.action_global_clientCreateFragment, args = Bundle().apply {
+                    putString(CLIENT_ID, navigationAction.clientId)
+                })
             }
         }
     }

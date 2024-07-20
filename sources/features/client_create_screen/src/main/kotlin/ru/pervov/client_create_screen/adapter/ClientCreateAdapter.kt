@@ -69,7 +69,6 @@ class ClientCreateAdapter(
             is PhoneNumberHolder -> {
                 val item = clientCreateItemList[position] as? CreateClientItem.PhoneInput ?: return
                 val editTextPhoneNumber = holder.binding.editTextPhoneNumber
-
                 item.phoneNumber?.let { editTextPhoneNumber.setText(it) }
                 editTextPhoneNumber.doAfterMaskedTextChanged {
                     item.phoneNumber = it.toString()
@@ -93,7 +92,7 @@ class ClientCreateAdapter(
                     clientCreateItemList[position] as? CreateClientItem.WearTimeInput ?: return
                 val editTextWearTime = holder.binding.editTextWearTime
 
-                item.wearTime?.let { editTextWearTime.setText(it) }
+                item.wearTime?.let { editTextWearTime.setText(it.toString()) }
                 editTextWearTime.doOnTextChanged { text, _, _, _ ->
                     item.wearTime = text.toString().toIntOrNull()
                 }
@@ -104,7 +103,7 @@ class ClientCreateAdapter(
                 val item = clientCreateItemList[position] as? CreateClientItem.PriceInput ?: return
                 val editTextPrice = holder.binding.editTextPrice
 
-                item.price?.let { editTextPrice.setText(it) }
+                item.price?.let { editTextPrice.setText(it.toString()) }
                 editTextPrice.doOnTextChanged { text, _, _, _ ->
                     item.price = text.toString().toIntOrNull()
                 }

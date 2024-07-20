@@ -20,10 +20,12 @@
         android:name="ru.pervov.client_create_screen.fragment.ClientCreateFragment">
 
     </fragment>
+
     <action
         android:id="@+id/action_global_clientListFragment"
         app:destination="@id/clientListFragment"
         app:popUpTo="@id/nav_graph" />
+
     <action
         android:id="@+id/action_global_clientCreateFragment"
         app:destination="@id/clientCreateFragment" />

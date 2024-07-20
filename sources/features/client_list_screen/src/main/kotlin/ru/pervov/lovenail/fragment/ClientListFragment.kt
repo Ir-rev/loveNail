@@ -66,14 +66,21 @@ class ClientListFragment : Fragment() {
                     }
 
                     is ClientListViewModelState.Success -> {
-                        binding.clientListRecyclerView.adapter = ClientListAdapter(state.clientList)
+                        binding.clientListRecyclerView.adapter =
+                            ClientListAdapter(state.clientList) { id: String ->
+                                openCreateOrUpdateClientScreen(id)
+                            }
                     }
                 }
             }
         }
         binding.addClientImageView.setOnClickListener {
-            (activity as? NavigationHolder)?.doNavigation(NavigationAction.OpenCreateClient())
+            openCreateOrUpdateClientScreen(null)
         }
+    }
+
+    private fun openCreateOrUpdateClientScreen(id: String?) {
+        (activity as? NavigationHolder)?.doNavigation(NavigationAction.OpenCreateClient(id))
     }
 
     private fun setVisibleErrorScreen(isVisible: Boolean) {
