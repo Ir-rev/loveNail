@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import ru.pervov.lovenail.adapter.ClientListAdapter
+import ru.pervov.lovenail.client_list_screen.R
 import ru.pervov.lovenail.client_list_screen.databinding.FragmentClientListBinding
 import ru.pervov.lovenail.view_model.ClientListViewModel
 import ru.pervov.lovenail.view_model.ClientListViewModelFactory
@@ -44,16 +47,22 @@ class ClientListFragment : Fragment() {
         val binding = binding ?: return
         val viewModel = viewModel ?: return
 
+        Glide.with(this)
+            .load(R.drawable.gif_loading)
+            .into(binding.imageViewLoading)
+
         binding.clientListRecyclerView.layoutManager = LinearLayoutManager(context)
         lifecycleScope.launch {
             viewModel.state.collect { state ->
+                setVisibleErrorScreen(false)
+                setVisibleLoadingScreen(false)
                 when (state) {
                     is ClientListViewModelState.Error -> {
-                        // todo
+                        setVisibleErrorScreen(true)
                     }
 
                     is ClientListViewModelState.Loading -> {
-                        // todo
+                        setVisibleLoadingScreen(true)
                     }
 
                     is ClientListViewModelState.Success -> {
@@ -65,5 +74,15 @@ class ClientListFragment : Fragment() {
         binding.addClientImageView.setOnClickListener {
             (activity as? NavigationHolder)?.doNavigation(NavigationAction.OpenCreateClient())
         }
+    }
+
+    private fun setVisibleErrorScreen(isVisible: Boolean) {
+        val binding = binding ?: return
+        binding.containerError.isVisible = isVisible
+    }
+
+    private fun setVisibleLoadingScreen(isVisible: Boolean) {
+        val binding = binding ?: return
+        binding.containerError.isVisible = isVisible
     }
 }

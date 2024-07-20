@@ -3,9 +3,11 @@
     <string name="client_create">Создание клиента</string>
     <string name="pnone_number">номер телефона</string>
     <string name="name">Имя</string>
+    <string name="name_input">Введите имя</string>
     <string name="phone_number_hilt">+7 999 999 99 99</string>
     <string name="wear_nail_time">Время носки ногтей</string>
     <string name="amount_of_days">количество дней</string>
     <string name="price">Цена</string>
     <string name="price_in_rubles">Цена в рублях</string>
+    <string name="create">Создать</string>
 </resources>

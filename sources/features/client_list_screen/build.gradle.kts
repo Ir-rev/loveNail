@@ -10,4 +10,6 @@ android {
 
 dependencies {
     implementation(project(":sources:features:clients_api"))
+
+    implementation(libs.glide)
 }

@@ -20,7 +20,7 @@
         android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/phone_number_hilt"
+        android:hint="@string/name_input"
         android:inputType="text"
         />
 </LinearLayout>
