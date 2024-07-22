@@ -1,4 +1,4 @@
-package ru.pervov.lovenail.fragment
+package ru.pervov.procedure_list_screen.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,33 +11,33 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
-import ru.pervov.lovenail.adapter.ClientListAdapter
-import ru.pervov.lovenail.client_list_screen.R
-import ru.pervov.lovenail.client_list_screen.databinding.FragmentClientListBinding
-import ru.pervov.lovenail.view_model.ClientListViewModel
-import ru.pervov.lovenail.view_model.ClientListViewModelFactory
-import ru.pervov.lovenail.view_model.ClientListViewModelState
+import ru.pervov.procedure_list_screen.adapter.ProcedureListAdapter
+import ru.pervov.lovenail.procedure_list_screen.R
+import ru.pervov.lovenail.procedure_list_screen.databinding.FragmentProcedureListBinding
+import ru.pervov.procedure_list_screen.view_model.ProcedureListViewModel
+import ru.pervov.procedure_list_screen.view_model.ProcedureListViewModelFactory
+import ru.pervov.procedure_list_screen.view_model.ProcedureListViewModelState
 import ru.pervov.utils.NavigationAction
 import ru.pervov.utils.NavigationHolder
 
-class ClientListFragment : Fragment() {
+class ProcedureListFragment : Fragment() {
 
-    private var viewModel: ClientListViewModel? = null
-    private var binding: FragmentClientListBinding? = null
+    private var viewModel: ProcedureListViewModel? = null
+    private var binding: FragmentProcedureListBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(
             this,
-            ClientListViewModelFactory()
-        )[ClientListViewModel::class.java]
+            ProcedureListViewModelFactory()
+        )[ProcedureListViewModel::class.java]
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentClientListBinding.inflate(inflater, container, false)
+        val binding = FragmentProcedureListBinding.inflate(inflater, container, false)
         this.binding = binding
         return binding.root
     }
@@ -51,36 +51,36 @@ class ClientListFragment : Fragment() {
             .load(R.drawable.gif_loading)
             .into(binding.imageViewLoading)
 
-        binding.clientListRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.procedureListRecyclerView.layoutManager = LinearLayoutManager(context)
         lifecycleScope.launch {
             viewModel.state.collect { state ->
                 setVisibleErrorScreen(false)
                 setVisibleLoadingScreen(false)
                 when (state) {
-                    is ClientListViewModelState.Error -> {
+                    is ProcedureListViewModelState.Error -> {
                         setVisibleErrorScreen(true)
                     }
 
-                    is ClientListViewModelState.Loading -> {
+                    is ProcedureListViewModelState.Loading -> {
                         setVisibleLoadingScreen(true)
                     }
 
-                    is ClientListViewModelState.Success -> {
-                        binding.clientListRecyclerView.adapter =
-                            ClientListAdapter(state.clientList) { id: String ->
-                                openCreateOrUpdateClientScreen(id)
+                    is ProcedureListViewModelState.Success -> {
+                        binding.procedureListRecyclerView.adapter =
+                            ProcedureListAdapter(state.procedureList) { id: String ->
+                                openCreateOrUpdateProcedureScreen(id)
                             }
                     }
                 }
             }
         }
-        binding.addClientImageView.setOnClickListener {
-            openCreateOrUpdateClientScreen(null)
+        binding.addProcedureImageView.setOnClickListener {
+            openCreateOrUpdateProcedureScreen(null)
         }
     }
 
-    private fun openCreateOrUpdateClientScreen(id: String?) {
-        (activity as? NavigationHolder)?.doNavigation(NavigationAction.OpenCreateOrUpdateClient(id))
+    private fun openCreateOrUpdateProcedureScreen(id: String?) {
+        (activity as? NavigationHolder)?.doNavigation(NavigationAction.OpenCreateOrUpdateProcedure(id))
     }
 
     private fun setVisibleErrorScreen(isVisible: Boolean) {

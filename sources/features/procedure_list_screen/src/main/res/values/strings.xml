@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="procedure_list">Список процедур</string>
+    <string name="error">Ошибка</string>
+    <string name="empty_procedure_list">Список процедур пуст</string>
+</resources>

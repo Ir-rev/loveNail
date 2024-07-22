@@ -21,7 +21,7 @@ class NavigationHolderImpl(
                 navigation.navigate(R.id.action_global_clientListFragment)
             }
 
-            is NavigationAction.OpenCreateClient -> {
+            is NavigationAction.OpenCreateOrUpdateClient -> {
                 navigation.navigate(R.id.action_global_clientCreateFragment, args = Bundle().apply {
                     putString(CLIENT_ID, navigationAction.clientId)
                 })

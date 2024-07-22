@@ -38,6 +38,9 @@ include(":sources:features:week_calendar_screen")
 // procedure
 include(":sources:features:procedure_api")
 
+// procedure screen
+include(":sources:features:procedure_list_screen")
+
 // contact reader
 include(":sources:features:contact_reader")
 

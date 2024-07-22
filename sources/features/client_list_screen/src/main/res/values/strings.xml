@@ -2,4 +2,5 @@
 <resources>
     <string name="client_list">Список клиентов</string>
     <string name="error">Ошибка</string>
+    <string name="empty_client_list">Список клиентов пуст</string>
 </resources>

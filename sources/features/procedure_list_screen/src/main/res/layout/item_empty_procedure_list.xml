@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:textColor="@color/black"
-        android:text="@string/empty_client_list"
+        android:text="@string/empty_procedure_list"
         android:textSize="22sp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -32,6 +32,7 @@
             <option value="$PROJECT_DIR$/sources/features/navigation" />
             <option value="$PROJECT_DIR$/sources/features/permissions_getter" />
             <option value="$PROJECT_DIR$/sources/features/procedure_api" />
+            <option value="$PROJECT_DIR$/sources/features/procedure_list_screen" />
             <option value="$PROJECT_DIR$/sources/features/utils" />
             <option value="$PROJECT_DIR$/sources/features/week_calendar_screen" />
           </set>
