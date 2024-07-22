@@ -31,6 +31,7 @@
             <option value="$PROJECT_DIR$/sources/features/navigation" />
             <option value="$PROJECT_DIR$/sources/features/permissions_getter" />
             <option value="$PROJECT_DIR$/sources/features/utils" />
+            <option value="$PROJECT_DIR$/sources/features/week_calendar_screen" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

@@ -26,6 +26,10 @@ class NavigationHolderImpl(
                     putString(CLIENT_ID, navigationAction.clientId)
                 })
             }
+
+            is NavigationAction.OpenWeekCalendar -> {
+                navigation.navigate(R.id.action_global_weekCalendarFragment)
+            }
         }
     }
 }

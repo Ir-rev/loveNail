@@ -21,6 +21,12 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/weekCalendarFragment"
+        android:name="ru.pervov.week_calendar_screen.fragment.WeekCalendarFragment">
+
+    </fragment>
+
     <action
         android:id="@+id/action_global_clientListFragment"
         app:destination="@id/clientListFragment"
@@ -29,6 +35,10 @@
     <action
         android:id="@+id/action_global_clientCreateFragment"
         app:destination="@id/clientCreateFragment" />
+
+    <action
+        android:id="@+id/action_global_weekCalendarFragment"
+        app:destination="@id/weekCalendarFragment" />
 
 
 </navigation>

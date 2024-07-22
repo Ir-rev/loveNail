@@ -46,9 +46,13 @@ dependencies {
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
     implementation(project(":sources:features:client_list_screen"))
     implementation(project(":sources:features:client_create_screen"))
     implementation(project(":sources:features:clients_api"))
+    
+    implementation(project(":sources:features:week_calendar_screen"))
+
     implementation(project(":sources:features:navigation"))
     implementation(project(":sources:features:utils"))
 

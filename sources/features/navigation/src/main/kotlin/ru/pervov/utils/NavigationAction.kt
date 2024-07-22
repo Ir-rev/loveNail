@@ -6,4 +6,6 @@ sealed class NavigationAction {
 
     class OpenCreateClient(val clientId: String?) : NavigationAction()
 
+    class OpenWeekCalendar() : NavigationAction()
+
 }

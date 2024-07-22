@@ -27,6 +27,9 @@ include(":sources:features:clients_api")
 include(":sources:features:client_list_screen")
 include(":sources:features:client_create_screen")
 
+// calendar
+include(":sources:features:week_calendar_screen")
+
 // contact reader
 include(":sources:features:contact_reader")
 
