@@ -14,7 +14,7 @@ data class Client(
 )
 
 @Entity
-data class Comment(
+data class ClientComment(
     @PrimaryKey val id: String,
     @ColumnInfo(name = "clientId") val clientId: String,
     @ColumnInfo(name = "date") val date: String,
@@ -22,7 +22,7 @@ data class Comment(
 )
 
 @Entity
-data class Rating(
+data class ClientRating(
     @PrimaryKey val id: String,
     @ColumnInfo(name = "clientId") val clientId: String,
     @ColumnInfo(name = "date") val date: String,

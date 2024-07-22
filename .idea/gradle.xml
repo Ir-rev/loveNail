@@ -24,12 +24,14 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/sources" />
             <option value="$PROJECT_DIR$/sources/features" />
+            <option value="$PROJECT_DIR$/sources/features/calendar_api" />
             <option value="$PROJECT_DIR$/sources/features/client_create_screen" />
             <option value="$PROJECT_DIR$/sources/features/client_list_screen" />
             <option value="$PROJECT_DIR$/sources/features/clients_api" />
             <option value="$PROJECT_DIR$/sources/features/contact_reader" />
             <option value="$PROJECT_DIR$/sources/features/navigation" />
             <option value="$PROJECT_DIR$/sources/features/permissions_getter" />
+            <option value="$PROJECT_DIR$/sources/features/procedure_api" />
             <option value="$PROJECT_DIR$/sources/features/utils" />
             <option value="$PROJECT_DIR$/sources/features/week_calendar_screen" />
           </set>

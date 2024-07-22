@@ -5,8 +5,8 @@ import androidx.room.Room
 import ru.pervov.lovenail.clients_api.dataBase.utils.DataBaseGetter
 import ru.pervov.lovenail.clients_api.dataBase.utils.DataBaseSetting
 import ru.pervov.lovenail.clients_api.dataBase.client.ClientDatabase
-import ru.pervov.lovenail.clients_api.dataBase.client_rating.RatingDatabase
-import ru.pervov.lovenail.clients_api.dataBase.comment.CommentDatabase
+import ru.pervov.lovenail.clients_api.dataBase.client_rating.ClientRatingRatingDatabase
+import ru.pervov.lovenail.clients_api.dataBase.comment.ClientCommentDatabase
 
 private const val CLIENT_DATABASE = "client-database"
 private const val RATING_DATABASE = "rating-database"
@@ -15,8 +15,8 @@ private const val COMMENT_DATABASE = "comment-database"
 internal class DataBaseHolder private constructor() : DataBaseSetting, DataBaseGetter {
 
     private var clientDatabase: ClientDatabase? = null
-    private var ratingDatabase: RatingDatabase? = null
-    private var commentDatabase: CommentDatabase? = null
+    private var ratingDatabase: ClientRatingRatingDatabase? = null
+    private var commentDatabase: ClientCommentDatabase? = null
 
     override fun init(context: Context) {
         clientDatabase = Room.databaseBuilder(
@@ -25,11 +25,11 @@ internal class DataBaseHolder private constructor() : DataBaseSetting, DataBaseG
         ).build()
         ratingDatabase = Room.databaseBuilder(
             context,
-            RatingDatabase::class.java, RATING_DATABASE
+            ClientRatingRatingDatabase::class.java, RATING_DATABASE
         ).build()
         commentDatabase = Room.databaseBuilder(
             context,
-            CommentDatabase::class.java, COMMENT_DATABASE
+            ClientCommentDatabase::class.java, COMMENT_DATABASE
         ).build()
     }
 
@@ -37,11 +37,11 @@ internal class DataBaseHolder private constructor() : DataBaseSetting, DataBaseG
         return clientDatabase ?: throw getIllegalStateException(CLIENT_DATABASE)
     }
 
-    override fun getCommentDataBase(): CommentDatabase {
+    override fun getCommentDataBase(): ClientCommentDatabase {
         return commentDatabase ?: throw getIllegalStateException(COMMENT_DATABASE)
     }
 
-    override fun getRatingDataBase(): RatingDatabase {
+    override fun getRatingDataBase(): ClientRatingRatingDatabase {
         return ratingDatabase ?: throw getIllegalStateException(RATING_DATABASE)
     }
 

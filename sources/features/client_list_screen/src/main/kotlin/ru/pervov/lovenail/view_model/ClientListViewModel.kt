@@ -10,9 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ru.pervov.lovenail.adapter.ClientRecyclerItem
-import ru.pervov.lovenail.clients_api.models.Client
 import ru.pervov.lovenail.clients_api.repository.ClientsRepository
-import java.util.UUID
 
 class ClientListViewModel(
     private val clientsRepository: ClientsRepository
@@ -46,7 +44,7 @@ class ClientListViewModel(
                 }
             }) {
                 _state.emit(ClientListViewModelState.Loading())
-                val clientList = clientsRepository.getAllClient()
+                val clientList = clientsRepository.getAllClients()
                 val clientRecyclerItem: List<ClientRecyclerItem> = if (clientList.isEmpty()) {
                     listOf(ClientRecyclerItem.EmptyListItem())
                 } else {

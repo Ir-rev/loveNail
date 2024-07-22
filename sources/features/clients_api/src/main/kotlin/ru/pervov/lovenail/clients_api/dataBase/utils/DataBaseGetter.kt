@@ -1,13 +1,13 @@
 package ru.pervov.lovenail.clients_api.dataBase.utils
 
 import ru.pervov.lovenail.clients_api.dataBase.client.ClientDatabase
-import ru.pervov.lovenail.clients_api.dataBase.client_rating.RatingDatabase
-import ru.pervov.lovenail.clients_api.dataBase.comment.CommentDatabase
+import ru.pervov.lovenail.clients_api.dataBase.client_rating.ClientRatingRatingDatabase
+import ru.pervov.lovenail.clients_api.dataBase.comment.ClientCommentDatabase
 
 internal interface DataBaseGetter {
 
     fun getClientDataBase(): ClientDatabase
-    fun getCommentDataBase(): CommentDatabase
-    fun getRatingDataBase(): RatingDatabase
+    fun getCommentDataBase(): ClientCommentDatabase
+    fun getRatingDataBase(): ClientRatingRatingDatabase
 
 }

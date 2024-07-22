@@ -14,7 +14,7 @@ interface ClientsRepository {
 
     fun updateClient(client: Client)
 
-    fun getAllClient(): List<Client>
+    fun getAllClients(): List<Client>
 
     fun getClientById(id: String): Client?
 

@@ -34,7 +34,7 @@ internal class ClientsRepositoryImpl private constructor() : ClientsRepository {
         updateDataBase()
     }
 
-    override fun getAllClient(): List<Client> {
+    override fun getAllClients(): List<Client> {
         return clientDao.getAll()
     }
 
