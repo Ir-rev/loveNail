@@ -10,17 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.launch
-import ru.pervov.client_create_screen.adapter.ClientCreateAdapter
-import ru.pervov.client_create_screen.view_model.ClientCreateAction
-import ru.pervov.client_create_screen.view_model.ClientCreateViewModel
-import ru.pervov.client_create_screen.view_model.ClientListViewModelFactory
-import ru.pervov.lovenail.client_create_screen.databinding.FragmentClientCreateBinding
 import ru.pervov.lovenail.procedure_create_screen.databinding.FragmentProcedureCreateBinding
+import ru.pervov.procedure_create_screen.adapter.ProcedureCreateAdapter
 import ru.pervov.procedure_create_screen.view_model.ProcedureCreateAction
 import ru.pervov.procedure_create_screen.view_model.ProcedureCreateViewModel
 import ru.pervov.procedure_create_screen.view_model.ProcedureListViewModelFactory
 
-const val CLIENT_ID = "CLIENT_ID"
+const val PROCEDURE_ID = "PROCEDURE_ID"
 
 class ProcedureCreateFragment : Fragment() {
 
@@ -31,7 +27,7 @@ class ProcedureCreateFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(
             this,
-            ProcedureListViewModelFactory(arguments?.getString(CLIENT_ID))
+            ProcedureListViewModelFactory(arguments?.getString(PROCEDURE_ID))
         )[ProcedureCreateViewModel::class.java]
     }
 
@@ -53,7 +49,7 @@ class ProcedureCreateFragment : Fragment() {
         binding.procedureCreateRecyclerView.layoutManager = LinearLayoutManager(context)
         lifecycleScope.launch {
             viewModel.state.collect {
-                binding.procedureCreateRecyclerView.adapter = ClientCreateAdapter(it)
+                binding.procedureCreateRecyclerView.adapter = ProcedureCreateAdapter(it)
             }
         }
         lifecycleScope.launch {

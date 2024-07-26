@@ -57,6 +57,7 @@ dependencies {
 
     // procedure
     implementation(project(":sources:features:procedure_list_screen"))
+    implementation(project(":sources:features:procedure_create_screen"))
     implementation(project(":sources:features:procedure_api"))
 
     // utils

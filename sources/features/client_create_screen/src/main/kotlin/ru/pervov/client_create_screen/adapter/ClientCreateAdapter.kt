@@ -1,11 +1,7 @@
 package ru.pervov.client_create_screen.adapter
 
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.vicmikhailau.maskededittext.doAfterMaskedTextChanged

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.navigation.Navigation
 import ru.pervov.client_create_screen.fragment.CLIENT_ID
+import ru.pervov.procedure_create_screen.fragment.PROCEDURE_ID
 import ru.pervov.utils.NavigationAction
 import ru.pervov.utils.NavigationHolder
 
@@ -38,9 +39,10 @@ class NavigationHolderImpl(
                 navigation.navigate(R.id.action_global_procedureListFragment)
             }
             is NavigationAction.OpenCreateOrUpdateProcedure -> {
-//                navigation.navigate(R.id.action_global_procedureListFragment)
+                navigation.navigate(R.id.action_global_procedureCreateFragment,args = Bundle().apply {
+                    putString(PROCEDURE_ID, navigationAction.procedureId)
+                })
             }
-
         }
     }
 }
