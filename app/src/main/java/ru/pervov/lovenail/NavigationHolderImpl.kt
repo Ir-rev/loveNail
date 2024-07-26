@@ -17,19 +17,30 @@ class NavigationHolderImpl(
 
     override fun doNavigation(navigationAction: NavigationAction) {
         when (navigationAction) {
+
+            // client
             is NavigationAction.OpenClientList -> {
                 navigation.navigate(R.id.action_global_clientListFragment)
             }
-
             is NavigationAction.OpenCreateOrUpdateClient -> {
                 navigation.navigate(R.id.action_global_clientCreateFragment, args = Bundle().apply {
                     putString(CLIENT_ID, navigationAction.clientId)
                 })
             }
 
+            // calendar
             is NavigationAction.OpenWeekCalendar -> {
                 navigation.navigate(R.id.action_global_weekCalendarFragment)
             }
+
+            // procedure
+            is NavigationAction.OpenProcedureList -> {
+                navigation.navigate(R.id.action_global_procedureListFragment)
+            }
+            is NavigationAction.OpenCreateOrUpdateProcedure -> {
+//                navigation.navigate(R.id.action_global_procedureListFragment)
+            }
+
         }
     }
 }

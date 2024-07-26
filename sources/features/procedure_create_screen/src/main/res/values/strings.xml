@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create">Создать</string>
+    <string name="create_procedure">Создание процедуры</string>
+    <string name="procedure_name">Имя процедуры</string>
+    <string name="procedure_name_input">Введите имя процедуры</string>
+    <string name="price">Цена</string>
+    <string name="price_in_rubles">Цена в рублях</string>
+    <string name="work_time">Время работы</string>
+    <string name="amount_of_minutes">Введите время в минутах</string>
+    <string name="description">Описание</string>
+    <string name="description_input">Введите описание процедуры</string>
+</resources>

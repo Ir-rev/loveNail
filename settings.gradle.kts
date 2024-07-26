@@ -40,6 +40,7 @@ include(":sources:features:procedure_api")
 
 // procedure screen
 include(":sources:features:procedure_list_screen")
+include(":sources:features:procedure_create_screen")
 
 // contact reader
 include(":sources:features:contact_reader")

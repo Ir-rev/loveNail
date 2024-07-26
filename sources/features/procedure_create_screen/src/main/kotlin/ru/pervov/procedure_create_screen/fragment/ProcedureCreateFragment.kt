@@ -1,4 +1,4 @@
-package ru.pervov.client_create_screen.fragment
+package ru.pervov.procedure_create_screen.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,20 +15,24 @@ import ru.pervov.client_create_screen.view_model.ClientCreateAction
 import ru.pervov.client_create_screen.view_model.ClientCreateViewModel
 import ru.pervov.client_create_screen.view_model.ClientListViewModelFactory
 import ru.pervov.lovenail.client_create_screen.databinding.FragmentClientCreateBinding
+import ru.pervov.lovenail.procedure_create_screen.databinding.FragmentProcedureCreateBinding
+import ru.pervov.procedure_create_screen.view_model.ProcedureCreateAction
+import ru.pervov.procedure_create_screen.view_model.ProcedureCreateViewModel
+import ru.pervov.procedure_create_screen.view_model.ProcedureListViewModelFactory
 
 const val CLIENT_ID = "CLIENT_ID"
 
-class ClientCreateFragment : Fragment() {
+class ProcedureCreateFragment : Fragment() {
 
-    private var viewModel: ClientCreateViewModel? = null
-    private var binding: FragmentClientCreateBinding? = null
+    private var viewModel: ProcedureCreateViewModel? = null
+    private var binding: FragmentProcedureCreateBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(
             this,
-            ClientListViewModelFactory(arguments?.getString(CLIENT_ID))
-        )[ClientCreateViewModel::class.java]
+            ProcedureListViewModelFactory(arguments?.getString(CLIENT_ID))
+        )[ProcedureCreateViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -36,7 +40,7 @@ class ClientCreateFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentClientCreateBinding.inflate(inflater, container, false)
+        val binding = FragmentProcedureCreateBinding.inflate(inflater, container, false)
         this.binding = binding
         return binding.root
     }
@@ -46,16 +50,16 @@ class ClientCreateFragment : Fragment() {
         val binding = binding ?: return
         val viewModel = viewModel ?: return
 
-        binding.clientCreateRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.procedureCreateRecyclerView.layoutManager = LinearLayoutManager(context)
         lifecycleScope.launch {
             viewModel.state.collect {
-                binding.clientCreateRecyclerView.adapter = ClientCreateAdapter(it)
+                binding.procedureCreateRecyclerView.adapter = ClientCreateAdapter(it)
             }
         }
         lifecycleScope.launch {
             viewModel.action.collect { action ->
                 when (action) {
-                    is ClientCreateAction.ShowToast -> {
+                    is ProcedureCreateAction.ShowToast -> {
                         context?.let { context ->
                             Toast.makeText(
                                 context,
@@ -65,11 +69,11 @@ class ClientCreateFragment : Fragment() {
                         }
                     }
 
-                    is ClientCreateAction.ClientCreatedOrUpdated -> activity?.onBackPressed()
+                    is ProcedureCreateAction.ProcedureCreatedOrUpdated -> activity?.onBackPressed()
                 }
             }
         }
-        binding.buttonCreateClient.setOnClickListener {
+        binding.buttonCreateProcedure.setOnClickListener {
             viewModel.createClient()
         }
     }

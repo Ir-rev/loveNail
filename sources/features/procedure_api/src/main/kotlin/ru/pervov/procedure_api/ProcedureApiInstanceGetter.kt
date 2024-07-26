@@ -1,5 +1,7 @@
 package ru.pervov.procedure_api
 
+import ru.pervov.calendar_api.dataBase.utils.DataBaseSetting
+import ru.pervov.procedure_api.dataBase.DataBaseHolder
 import ru.pervov.procedure_api.repository.ProcedureRepository
 import ru.pervov.procedure_api.repository.ProcedureRepositoryImpl
 
@@ -7,6 +9,14 @@ class ProcedureApiInstanceGetter private constructor() {
 
     fun getProcedureRepository(): ProcedureRepository {
         return ProcedureRepositoryImpl.getInstance()
+    }
+
+    fun getClientDataBaseSetting(): DataBaseSetting {
+        return getDataBaseHolder()
+    }
+
+    private fun getDataBaseHolder(): DataBaseHolder {
+        return DataBaseHolder.getInstance()
     }
 
     companion object {

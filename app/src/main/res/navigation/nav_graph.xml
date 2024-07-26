@@ -17,7 +17,13 @@
 
     <fragment
         android:id="@+id/clientCreateFragment"
-        android:name="ru.pervov.client_create_screen.fragment.ClientCreateFragment">
+        android:name="ru.pervov.procedure_create_screen.fragment.ClientCreateFragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/procedureListFragment"
+        android:name="ru.pervov.procedure_list_screen.fragment.ProcedureListFragment">
 
     </fragment>
 
@@ -39,6 +45,10 @@
     <action
         android:id="@+id/action_global_weekCalendarFragment"
         app:destination="@id/weekCalendarFragment" />
+
+    <action
+        android:id="@+id/action_global_procedureListFragment"
+        app:destination="@id/procedureListFragment" />
 
 
 </navigation>

@@ -4,6 +4,6 @@ sealed class ClientCreateAction {
 
     class ShowToast(val message: String) : ClientCreateAction()
 
-    class ClientCreatedOrUpdate() : ClientCreateAction()
+    class ClientCreatedOrUpdated() : ClientCreateAction()
 
 }

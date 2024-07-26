@@ -91,7 +91,7 @@ class ClientCreateViewModel(
             } else {
                 clientsRepository.updateClient(client)
             }
-            _action.emit(ClientCreateAction.ClientCreatedOrUpdate())
+            _action.emit(ClientCreateAction.ClientCreatedOrUpdated())
         }
     }
 
