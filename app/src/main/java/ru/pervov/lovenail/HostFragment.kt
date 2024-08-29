@@ -21,7 +21,7 @@ class HostFragment : Fragment() {
         super.onCreate(savedInstanceState)
         lifecycleScope.launchWhenResumed {
             (activity as? NavigationHolder)?.doNavigation(
-                navigationAction = NavigationAction.OpenProcedureList()
+                navigationAction = NavigationAction.OpenWeekCalendar()
             )
         }
     }

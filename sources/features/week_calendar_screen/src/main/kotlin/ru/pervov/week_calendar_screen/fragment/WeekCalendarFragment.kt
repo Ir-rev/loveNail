@@ -30,7 +30,13 @@ class WeekCalendarFragment : Fragment() {
         val binding = binding ?: return
         binding.weakCalendarGridView.numColumns = AMOUNT_PILLAR
 
-
+        // todo тестовый адаптер
+        val list = mutableListOf<CalendarItem.Event>()
+        for (i in 1..AMOUNT_PILLAR*AMOUNT_LINES) {
+            list.add(CalendarItem.Event(id = i.toLong()))
+        }
+        val adapter = CalendarAdapter(list)
+        binding.weakCalendarGridView.adapter = adapter
 
     }
 }
