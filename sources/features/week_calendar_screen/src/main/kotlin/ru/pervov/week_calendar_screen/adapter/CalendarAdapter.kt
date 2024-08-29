@@ -5,14 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import ru.pervov.calendar_api.models.Event
 import ru.pervov.lovenail.week_calendar_screen.databinding.ItemCalendarEmptyBinding
 
 internal const val AMOUNT_PILLAR = 7
 internal const val AMOUNT_LINES = 24
-internal const val ALL_CELL_CALENDAR = AMOUNT_PILLAR*AMOUNT_LINES
+internal const val ALL_CELL_CALENDAR = AMOUNT_PILLAR * AMOUNT_LINES
 
 class CalendarAdapter(
-    private val list: List<Unit>
+    private val list: List<Event>
 ) : BaseAdapter() {
 
     private val cellList = mutableListOf<List<String>>()
@@ -25,13 +26,9 @@ class CalendarAdapter(
         return ALL_CELL_CALENDAR
     }
 
-    override fun getItem(position: Int): Any {
-        return cellList[getRealPosition(position)]
-    }
+    override fun getItem(position: Int): Any = Unit
 
-    override fun getItemId(position: Int): Long {
-        return getRealPosition(position).toLong()
-    }
+    override fun getItemId(position: Int): Long = -1
 
     private fun getRealPosition(position: Int): Int {
         val currentPillar = position / AMOUNT_PILLAR
@@ -43,7 +40,7 @@ class CalendarAdapter(
         return ItemCalendarEmptyBinding.inflate(LayoutInflater.from(parent?.context), parent, false)
             .apply {
                 Log.d("checkResult", "getView: $position ${(getRealPosition(position))}")
-                textView.text = getRealPosition(position).toString()
+                textView.text = (getRealPosition(position) + 1).toString()
             }.root
     }
 }

@@ -9,9 +9,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import ru.pervov.calendar_api.repository.EventRepository
 
 class WeekCalendarViewModel(
-//    private val eventRepository: EventRepository
+    private val eventRepository: EventRepository
 ): ViewModel() {
 
     private val _state: MutableStateFlow<WeekCalendarViewModelState> =
@@ -23,9 +24,9 @@ class WeekCalendarViewModel(
     init {
         fetchEventList()
         viewModelScope.launch {
-//            eventRepository.action.collect {
-//                fetchEventList()
-//            }
+            eventRepository.action.collect {
+                fetchEventList()
+            }
         }
     }
 
@@ -41,7 +42,7 @@ class WeekCalendarViewModel(
             }
         }) {
             _state.emit(WeekCalendarViewModelState.Loading())
-//            _state.emit(WeekCalendarViewModelState.Success(eventRepository.getAllEvents()))
+            _state.emit(WeekCalendarViewModelState.Success(eventRepository.getAllEvents()))
         }
     }
 
