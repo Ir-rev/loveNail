@@ -2,8 +2,8 @@ package ru.pervov.procedure_api.dataBase
 
 import android.content.Context
 import androidx.room.Room
-import ru.pervov.calendar_api.dataBase.utils.DataBaseGetter
-import ru.pervov.calendar_api.dataBase.utils.DataBaseSetting
+import ru.pervov.procedure_api.dataBase.utils.DataBaseGetter
+import ru.pervov.procedure_api.dataBase.utils.DataBaseSetting
 import ru.pervov.procedure_api.dataBase.procedure.ProcedureDatabase
 
 private const val PROCEDURE_DATABASE = "procedure-database"

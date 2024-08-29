@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import ru.pervov.lovenail.week_calendar_screen.databinding.FragmentWeekCalendarBinding
 import ru.pervov.week_calendar_screen.adapter.CalendarAdapter
 import ru.pervov.week_calendar_screen.adapter.AMOUNT_PILLAR
-import ru.pervov.week_calendar_screen.adapter.AMOUNT_LINES
-import ru.pervov.week_calendar_screen.models.CalendarItem
 
 class WeekCalendarFragment : Fragment() {
 
@@ -31,11 +29,11 @@ class WeekCalendarFragment : Fragment() {
         binding.weakCalendarGridView.numColumns = AMOUNT_PILLAR
 
         // todo тестовый адаптер
-        val list = mutableListOf<CalendarItem.Event>()
-        for (i in 1..AMOUNT_PILLAR*AMOUNT_LINES) {
-            list.add(CalendarItem.Event(id = i.toLong()))
-        }
-        val adapter = CalendarAdapter(list)
+//        val list = mutableListOf<CalendarItem.Event>()
+//        for (i in 1..AMOUNT_PILLAR*AMOUNT_LINES) {
+//            list.add(CalendarItem.Event(id = i.toLong()))
+//        }
+        val adapter = CalendarAdapter(emptyList())
         binding.weakCalendarGridView.adapter = adapter
 
     }

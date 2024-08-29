@@ -6,23 +6,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import ru.pervov.lovenail.week_calendar_screen.databinding.ItemCalendarEmptyBinding
-import ru.pervov.week_calendar_screen.models.CalendarItem
 
 internal const val AMOUNT_PILLAR = 7
 internal const val AMOUNT_LINES = 24
+internal const val ALL_CELL_CALENDAR = AMOUNT_PILLAR*AMOUNT_LINES
 
-class CalendarAdapter(private val list: List<CalendarItem.Event>) : BaseAdapter() {
+class CalendarAdapter(
+    private val list: List<Unit>
+) : BaseAdapter() {
+
+    private val cellList = mutableListOf<List<String>>()
+
+    init {
+
+    }
 
     override fun getCount(): Int {
-        return list.size
+        return ALL_CELL_CALENDAR
     }
 
     override fun getItem(position: Int): Any {
-        return list[getRealPosition(position)]
+        return cellList[getRealPosition(position)]
     }
 
     override fun getItemId(position: Int): Long {
-        return list[getRealPosition(position)].id
+        return getRealPosition(position).toLong()
     }
 
     private fun getRealPosition(position: Int): Int {
@@ -32,9 +40,10 @@ class CalendarAdapter(private val list: List<CalendarItem.Event>) : BaseAdapter(
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        return ItemCalendarEmptyBinding.inflate(LayoutInflater.from(parent?.context), parent, false).apply {
-            Log.d("checkResult", "getView: $position ${(getRealPosition(position))}")
-            textView.text = list[getRealPosition(position)].id.toString()
-        }.root
+        return ItemCalendarEmptyBinding.inflate(LayoutInflater.from(parent?.context), parent, false)
+            .apply {
+                Log.d("checkResult", "getView: $position ${(getRealPosition(position))}")
+                textView.text = getRealPosition(position).toString()
+            }.root
     }
 }
