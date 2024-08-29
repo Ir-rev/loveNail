@@ -4,6 +4,6 @@ import ru.pervov.calendar_api.dataBase.event.EventDatabase
 
 internal interface DataBaseGetter {
 
-    fun getEventDatabase(): EventDatabase
+    fun getCalendarDatabase(): EventDatabase
 
 }

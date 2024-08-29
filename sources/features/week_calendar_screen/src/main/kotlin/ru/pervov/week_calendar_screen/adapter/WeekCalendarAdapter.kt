@@ -12,8 +12,8 @@ internal const val AMOUNT_PILLAR = 7
 internal const val AMOUNT_LINES = 24
 internal const val ALL_CELL_CALENDAR = AMOUNT_PILLAR * AMOUNT_LINES
 
-class CalendarAdapter(
-    private val list: List<Event>
+class WeekCalendarAdapter(
+    private val eventList: List<Event>
 ) : BaseAdapter() {
 
     private val cellList = mutableListOf<List<String>>()

@@ -13,7 +13,7 @@ import ru.pervov.calendar_api.models.EventDataBaseAction
 
 internal class EventRepositoryImpl private constructor() : EventRepository {
 
-    private val eventDao = DataBaseHolder.getInstance().getEventDatabase().eventDao()
+    private val eventDao = DataBaseHolder.getInstance().getCalendarDatabase().eventDao()
     private val scope = CoroutineScope(SupervisorJob())
     private val _action = MutableSharedFlow<EventDataBaseAction>()
     override val action: SharedFlow<EventDataBaseAction> = _action.asSharedFlow()

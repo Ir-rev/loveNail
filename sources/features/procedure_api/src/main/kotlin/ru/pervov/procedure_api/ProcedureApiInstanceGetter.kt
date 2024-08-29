@@ -11,7 +11,7 @@ class ProcedureApiInstanceGetter private constructor() {
         return ProcedureRepositoryImpl.getInstance()
     }
 
-    fun getClientDataBaseSetting(): DataBaseSetting {
+    fun getProcedureDatabaseSetting(): DataBaseSetting {
         return getDataBaseHolder()
     }
 

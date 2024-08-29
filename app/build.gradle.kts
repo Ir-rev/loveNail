@@ -63,5 +63,6 @@ dependencies {
     // utils
     implementation(project(":sources:features:navigation"))
     implementation(project(":sources:features:utils"))
+    implementation(project(":sources:features:calendar_api"))
 
 }

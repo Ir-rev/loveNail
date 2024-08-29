@@ -19,7 +19,7 @@ internal class DataBaseHolder private constructor() : DataBaseSetting, DataBaseG
         ).build()
     }
 
-    override fun getEventDatabase(): EventDatabase {
+    override fun getCalendarDatabase(): EventDatabase {
         return eventDatabase ?: throw getIllegalStateException(EVENT_DATABASE)
     }
 
