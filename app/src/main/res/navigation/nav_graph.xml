@@ -12,30 +12,30 @@
 
     <fragment
         android:id="@+id/clientListFragment"
-        android:name="ru.pervov.lovenail.fragment.ClientListFragment">
+        android:name="ru.pervov.lovenail.client_list_screen.fragment.ClientListFragment">
     </fragment>
 
     <fragment
         android:id="@+id/clientCreateFragment"
-        android:name="ru.pervov.client_create_screen.fragment.ClientCreateFragment">
+        android:name="ru.pervov.lovenail.client_create_screen.fragment.ClientCreateFragment">
 
     </fragment>
 
     <fragment
         android:id="@+id/procedureListFragment"
-        android:name="ru.pervov.procedure_list_screen.fragment.ProcedureListFragment">
+        android:name="ru.pervov.lovenail.procedure_list_screen.fragment.ProcedureListFragment">
 
     </fragment>
 
     <fragment
         android:id="@+id/procedureCreateFragment"
-        android:name="ru.pervov.procedure_create_screen.fragment.ProcedureCreateFragment">
+        android:name="ru.pervov.lovenail.procedure_create_screen.fragment.ProcedureCreateFragment">
 
     </fragment>
 
     <fragment
         android:id="@+id/weekCalendarFragment"
-        android:name="ru.pervov.week_calendar_screen.fragment.WeekCalendarFragment">
+        android:name="ru.pervov.lovenail.week_calendar_screen.fragment.WeekCalendarFragment">
 
     </fragment>
 

@@ -1,9 +1,9 @@
 package ru.pervov.lovenail
 
 import android.app.Application
-import ru.pervov.calendar_api.CalendarApiInstanceGetter
+import ru.pervov.lovenail.calendar_api.CalendarApiInstanceGetter
 import ru.pervov.lovenail.clients_api.ClientApiInstanceGetter
-import ru.pervov.procedure_api.ProcedureApiInstanceGetter
+import ru.pervov.lovenail.procedure_api.ProcedureApiInstanceGetter
 
 class App : Application() {
 

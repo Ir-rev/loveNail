@@ -12,8 +12,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import ru.pervov.utils.NavigationAction
-import ru.pervov.utils.NavigationHolder
+import ru.pervov.lovenail.utils.NavigationAction
+import ru.pervov.lovenail.utils.NavigationHolder
 
 class HostFragment : Fragment() {
 

@@ -34,6 +34,7 @@ include(":sources:features:calendar:calendar_api")
 
 // calendar screen
 include(":sources:features:calendar:week_calendar_screen")
+include(":sources:features:calendar:day_calendar_screen")
 
 // procedure
 include(":sources:features:procedure:procedure_api")

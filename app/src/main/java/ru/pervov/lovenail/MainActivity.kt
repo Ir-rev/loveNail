@@ -2,8 +2,8 @@ package ru.pervov.lovenail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ru.pervov.utils.NavigationAction
-import ru.pervov.utils.NavigationHolder
+import ru.pervov.lovenail.utils.NavigationAction
+import ru.pervov.lovenail.utils.NavigationHolder
 
 class MainActivity : AppCompatActivity(), NavigationHolder {
 

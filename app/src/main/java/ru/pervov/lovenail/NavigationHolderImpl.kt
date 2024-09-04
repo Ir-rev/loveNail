@@ -3,10 +3,10 @@ package ru.pervov.lovenail
 import android.app.Activity
 import android.os.Bundle
 import androidx.navigation.Navigation
-import ru.pervov.client_create_screen.fragment.CLIENT_ID
-import ru.pervov.procedure_create_screen.fragment.PROCEDURE_ID
-import ru.pervov.utils.NavigationAction
-import ru.pervov.utils.NavigationHolder
+import ru.pervov.lovenail.client_create_screen.fragment.CLIENT_ID
+import ru.pervov.lovenail.procedure_create_screen.fragment.PROCEDURE_ID
+import ru.pervov.lovenail.utils.NavigationAction
+import ru.pervov.lovenail.utils.NavigationHolder
 
 class NavigationHolderImpl(
     activity: Activity
