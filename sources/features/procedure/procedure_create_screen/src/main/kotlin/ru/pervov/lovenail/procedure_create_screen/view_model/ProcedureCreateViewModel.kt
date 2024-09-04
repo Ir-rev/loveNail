@@ -59,7 +59,7 @@ class ProcedureCreateViewModel(
                 CreateProcedureItem.WorkTimeInput(
                     id = UUID.randomUUID().toString(),
                     sequenceNumber = itemList.size,
-                    workTime = procedure?.workTime
+                    workTime = procedure?.workTimeInMinutes
                 )
             )
             _state.emit(itemList)
@@ -96,7 +96,7 @@ class ProcedureCreateViewModel(
                 name = name ?: "",
                 description = description ?: "",
                 price = price ?: 0,
-                workTime = workTime ?: 0
+                workTimeInMinutes = workTime ?: 0
             )
             if (procedureId == null) {
                 procedureRepository.addProcedure(procedure)

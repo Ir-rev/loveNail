@@ -52,7 +52,7 @@ class ClientCreateViewModel(
                 CreateClientItem.WearTimeInput(
                     id = UUID.randomUUID().toString(),
                     sequenceNumber = itemList.size,
-                    wearTime = client?.wearTime
+                    wearTime = client?.wearTimeInDays
                 )
             )
             itemList.add(
@@ -84,7 +84,7 @@ class ClientCreateViewModel(
                 name = name ?: "",
                 phoneNumber = phone ?: "",
                 price = price ?: 0,
-                wearTime = wearTime ?: 0
+                wearTimeInDays = wearTime ?: 0
             )
             if (clientId == null) {
                 clientsRepository.addClient(client)

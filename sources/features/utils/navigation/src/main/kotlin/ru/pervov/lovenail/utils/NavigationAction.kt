@@ -8,10 +8,14 @@ sealed class NavigationAction {
 
     // calendar
     class OpenWeekCalendar() : NavigationAction()
+    class OpenDayCalendar() : NavigationAction()
 
     // procedure
     class OpenProcedureList() : NavigationAction()
     class OpenCreateOrUpdateProcedure(val procedureId: String?) : NavigationAction()
+
+    // mock
+    class OpenCreateMock() : NavigationAction()
 
 
 }

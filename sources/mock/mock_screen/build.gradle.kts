@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "ru.pervov.lovenail.day_calendar_screen"
+    namespace = "ru.pervov.lovenail.mock_screen"
 }
 
 dependencies {
     implementation(project(":sources:features:calendar:calendar_api"))
-
-    implementation(libs.glide)
+    implementation(project(":sources:features:procedure:procedure_api"))
+    implementation(project(":sources:features:client:clients_api"))
 }

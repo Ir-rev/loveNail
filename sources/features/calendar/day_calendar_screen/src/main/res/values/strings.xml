@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="date">Дата</string>
+    <string name="error">ошибка</string>
+    <string name="empty_event_list">Список событий пуст</string>
+</resources>

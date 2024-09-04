@@ -50,3 +50,6 @@ include(":sources:features:utils:contact_reader")
 include(":sources:features:utils:permissions_getter")
 include(":sources:features:utils:navigation")
 include(":sources:features:utils:utils")
+
+// mock
+include(":sources:mock:mock_screen")

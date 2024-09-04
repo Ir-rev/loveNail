@@ -11,6 +11,11 @@
 
 
     <fragment
+        android:id="@+id/createMockFragment"
+        android:name="ru.pervov.lovenail.mock_screen.fragment.CreateMockFragment">
+    </fragment>
+
+    <fragment
         android:id="@+id/clientListFragment"
         android:name="ru.pervov.lovenail.client_list_screen.fragment.ClientListFragment">
     </fragment>
@@ -18,25 +23,26 @@
     <fragment
         android:id="@+id/clientCreateFragment"
         android:name="ru.pervov.lovenail.client_create_screen.fragment.ClientCreateFragment">
-
     </fragment>
 
     <fragment
         android:id="@+id/procedureListFragment"
         android:name="ru.pervov.lovenail.procedure_list_screen.fragment.ProcedureListFragment">
+    </fragment>
 
+    <fragment
+        android:id="@+id/dayCalendarFragment"
+        android:name="ru.pervov.lovenail.day_calendar_screen.fragment.DayCalendarFragment">
     </fragment>
 
     <fragment
         android:id="@+id/procedureCreateFragment"
         android:name="ru.pervov.lovenail.procedure_create_screen.fragment.ProcedureCreateFragment">
-
     </fragment>
 
     <fragment
         android:id="@+id/weekCalendarFragment"
         android:name="ru.pervov.lovenail.week_calendar_screen.fragment.WeekCalendarFragment">
-
     </fragment>
 
     <action
@@ -56,8 +62,14 @@
         android:id="@+id/action_global_procedureListFragment"
         app:destination="@id/procedureListFragment" />
     <action
+        android:id="@+id/action_global_createMockFragment"
+        app:destination="@id/createMockFragment" />
+    <action
         android:id="@+id/action_global_procedureCreateFragment"
         app:destination="@id/procedureCreateFragment" />
+    <action
+        android:id="@+id/action_global_dayCalendarFragment"
+        app:destination="@id/dayCalendarFragment" />
 
 
 </navigation>

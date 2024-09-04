@@ -41,6 +41,8 @@
             <option value="$PROJECT_DIR$/sources/features/utils/navigation" />
             <option value="$PROJECT_DIR$/sources/features/utils/permissions_getter" />
             <option value="$PROJECT_DIR$/sources/features/utils/utils" />
+            <option value="$PROJECT_DIR$/sources/mock" />
+            <option value="$PROJECT_DIR$/sources/mock/mock_screen" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

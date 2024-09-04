@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "ru.pervov.lovenail"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -54,6 +54,7 @@ dependencies {
 
     // calendar
     implementation(project(":sources:features:calendar:week_calendar_screen"))
+    implementation(project(":sources:features:calendar:day_calendar_screen"))
 
     // procedure
     implementation(project(":sources:features:procedure:procedure_list_screen"))
@@ -64,5 +65,8 @@ dependencies {
     implementation(project(":sources:features:utils:navigation"))
     implementation(project(":sources:features:utils:utils"))
     implementation(project(":sources:features:calendar:calendar_api"))
+
+    // mock
+    implementation(project(":sources:mock:mock_screen"))
 
 }

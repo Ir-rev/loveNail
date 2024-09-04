@@ -10,5 +10,5 @@ data class Procedure(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "price") val price: Int,
-    @ColumnInfo(name = "workTime") val workTime: Long,
+    @ColumnInfo(name = "workTimeInMinutes") val workTimeInMinutes: Long,
 )

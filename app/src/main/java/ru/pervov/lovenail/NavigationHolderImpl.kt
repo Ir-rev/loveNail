@@ -20,29 +20,28 @@ class NavigationHolderImpl(
         when (navigationAction) {
 
             // client
-            is NavigationAction.OpenClientList -> {
-                navigation.navigate(R.id.action_global_clientListFragment)
-            }
             is NavigationAction.OpenCreateOrUpdateClient -> {
                 navigation.navigate(R.id.action_global_clientCreateFragment, args = Bundle().apply {
                     putString(CLIENT_ID, navigationAction.clientId)
                 })
             }
+            is NavigationAction.OpenClientList -> navigation.navigate(R.id.action_global_clientListFragment)
 
             // calendar
-            is NavigationAction.OpenWeekCalendar -> {
-                navigation.navigate(R.id.action_global_weekCalendarFragment)
-            }
+            is NavigationAction.OpenWeekCalendar -> navigation.navigate(R.id.action_global_weekCalendarFragment)
+            is NavigationAction.OpenDayCalendar -> navigation.navigate(R.id.action_global_dayCalendarFragment)
 
             // procedure
-            is NavigationAction.OpenProcedureList -> {
-                navigation.navigate(R.id.action_global_procedureListFragment)
-            }
+            is NavigationAction.OpenProcedureList -> navigation.navigate(R.id.action_global_procedureListFragment)
             is NavigationAction.OpenCreateOrUpdateProcedure -> {
-                navigation.navigate(R.id.action_global_procedureCreateFragment,args = Bundle().apply {
-                    putString(PROCEDURE_ID, navigationAction.procedureId)
-                })
+                navigation.navigate(
+                    R.id.action_global_procedureCreateFragment, args = Bundle().apply {
+                        putString(PROCEDURE_ID, navigationAction.procedureId)
+                    })
             }
+
+            // mock
+            is NavigationAction.OpenCreateMock -> navigation.navigate(R.id.action_global_createMockFragment)
         }
     }
 }
