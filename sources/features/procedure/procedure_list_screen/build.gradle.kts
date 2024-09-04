@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":sources:features:procedure_api"))
+    implementation(project(":sources:features:procedure:procedure_api"))
 
     implementation(libs.glide)
 }

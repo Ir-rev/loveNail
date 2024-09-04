@@ -9,6 +9,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":sources:features:clients_api"))
+    implementation(project(":sources:features:client:clients_api"))
     implementation("io.github.vicmikhailau:MaskedEditText:5.0.2")
 }

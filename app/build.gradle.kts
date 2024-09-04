@@ -48,21 +48,21 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
 
     // client
-    implementation(project(":sources:features:client_list_screen"))
-    implementation(project(":sources:features:client_create_screen"))
-    implementation(project(":sources:features:clients_api"))
+    implementation(project(":sources:features:client:client_list_screen"))
+    implementation(project(":sources:features:client:client_create_screen"))
+    implementation(project(":sources:features:client:clients_api"))
 
     // calendar
-    implementation(project(":sources:features:week_calendar_screen"))
+    implementation(project(":sources:features:calendar:week_calendar_screen"))
 
     // procedure
-    implementation(project(":sources:features:procedure_list_screen"))
-    implementation(project(":sources:features:procedure_create_screen"))
-    implementation(project(":sources:features:procedure_api"))
+    implementation(project(":sources:features:procedure:procedure_list_screen"))
+    implementation(project(":sources:features:procedure:procedure_create_screen"))
+    implementation(project(":sources:features:procedure:procedure_api"))
 
     // utils
-    implementation(project(":sources:features:navigation"))
-    implementation(project(":sources:features:utils"))
-    implementation(project(":sources:features:calendar_api"))
+    implementation(project(":sources:features:utils:navigation"))
+    implementation(project(":sources:features:utils:utils"))
+    implementation(project(":sources:features:calendar:calendar_api"))
 
 }

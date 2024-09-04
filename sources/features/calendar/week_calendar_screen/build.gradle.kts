@@ -9,5 +9,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":sources:features:calendar_api"))
+    implementation(project(":sources:features:calendar:calendar_api"))
 }

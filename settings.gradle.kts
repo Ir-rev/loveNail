@@ -23,29 +23,29 @@ rootProject.name = "loveNail"
 include(":app")
 
 // client
-include(":sources:features:clients_api")
+include(":sources:features:client:clients_api")
 
 // client screen
-include(":sources:features:client_list_screen")
-include(":sources:features:client_create_screen")
+include(":sources:features:client:client_list_screen")
+include(":sources:features:client:client_create_screen")
 
 // calendar
-include(":sources:features:calendar_api")
+include(":sources:features:calendar:calendar_api")
 
 // calendar screen
-include(":sources:features:week_calendar_screen")
+include(":sources:features:calendar:week_calendar_screen")
 
 // procedure
-include(":sources:features:procedure_api")
+include(":sources:features:procedure:procedure_api")
 
 // procedure screen
-include(":sources:features:procedure_list_screen")
-include(":sources:features:procedure_create_screen")
+include(":sources:features:procedure:procedure_list_screen")
+include(":sources:features:procedure:procedure_create_screen")
 
 // contact reader
-include(":sources:features:contact_reader")
+include(":sources:features:utils:contact_reader")
 
 // utils
-include(":sources:features:permissions_getter")
-include(":sources:features:navigation")
-include(":sources:features:utils")
+include(":sources:features:utils:permissions_getter")
+include(":sources:features:utils:navigation")
+include(":sources:features:utils:utils")
