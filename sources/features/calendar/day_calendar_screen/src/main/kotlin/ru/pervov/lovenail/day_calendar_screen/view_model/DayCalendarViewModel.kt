@@ -9,11 +9,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import ru.pervov.lovenail.calendar_api.repository.EventRepository
+import ru.pervov.lovenail.calendar_domain.api.CalendarEventUseCase
 import ru.pervov.lovenail.day_calendar_screen.adapter.EventRecyclerItem
 
 class DayCalendarViewModel(
-    private val eventRepository: EventRepository
+    private val calendarEventUseCase: CalendarEventUseCase
 ) : ViewModel() {
 
     private val _state: MutableStateFlow<DayCalendarViewModelState> =
@@ -24,11 +24,6 @@ class DayCalendarViewModel(
 
     init {
         fetchEventList()
-        viewModelScope.launch {
-            eventRepository.action.collect {
-                fetchEventList()
-            }
-        }
     }
 
     fun fetchEventList() {
@@ -43,7 +38,7 @@ class DayCalendarViewModel(
             }
         }) {
             _state.emit(DayCalendarViewModelState.Loading())
-            val allEventList = eventRepository.getAllEvents()
+            val allEventList = calendarEventUseCase.getEventList()
             val eventItemList = mutableListOf<EventRecyclerItem>()
             if (allEventList.isEmpty()) {
                 eventItemList.add(EventRecyclerItem.EmptyListItem())

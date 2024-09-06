@@ -26,6 +26,7 @@
             <option value="$PROJECT_DIR$/sources/features" />
             <option value="$PROJECT_DIR$/sources/features/calendar" />
             <option value="$PROJECT_DIR$/sources/features/calendar/calendar_api" />
+            <option value="$PROJECT_DIR$/sources/features/calendar/calendar_domain" />
             <option value="$PROJECT_DIR$/sources/features/calendar/day_calendar_screen" />
             <option value="$PROJECT_DIR$/sources/features/calendar/week_calendar_screen" />
             <option value="$PROJECT_DIR$/sources/features/client" />

@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":sources:features:calendar:calendar_api"))
 
+    implementation(project(":sources:features:calendar:calendar_domain"))
     implementation(libs.glide)
 }

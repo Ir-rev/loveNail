@@ -31,6 +31,7 @@ include(":sources:features:client:client_create_screen")
 
 // calendar
 include(":sources:features:calendar:calendar_api")
+include(":sources:features:calendar:calendar_domain")
 
 // calendar screen
 include(":sources:features:calendar:week_calendar_screen")

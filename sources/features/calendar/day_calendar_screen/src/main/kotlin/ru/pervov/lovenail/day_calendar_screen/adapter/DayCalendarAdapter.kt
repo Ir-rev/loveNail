@@ -46,10 +46,13 @@ class DayCalendarAdapter(
             is EventItemHolder -> {
                 val item =
                     (eventList[position] as? EventRecyclerItem.EventItem)?.event ?: return
-                holder.nameTextView.text = item.procedureId
-                holder.dateTextView.text = item.dateStart.toString()
+                holder.dateTextView.text = item.event.dateStart.toString()
+                holder.descriptionTextView.text = item.event.description
+                holder.timeWorkTextView.text = item.procedure.workTimeInMinutes.toString()
+                holder.clientNameTextView.text = item.client.name
+                holder.procedureNameTextView.text = item.procedure.name
                 holder.root.setOnClickListener {
-                    onEventClick(item.id)
+                    onEventClick(item.event.id)
                 }
             }
         }
@@ -62,9 +65,13 @@ class DayCalendarAdapter(
     class EventItemHolder(
         binding: ItemEventBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        val nameTextView = binding.eventNameTextView
-        val dateTextView = binding.dateTextView
         val root = binding.rootContainer
+
+        val dateTextView = binding.dateTextView
+        val descriptionTextView = binding.descriptionTextView
+        val clientNameTextView = binding.clientNameTextView
+        val procedureNameTextView = binding.procedureNameTextView
+        val timeWorkTextView = binding.timeWorkTextView
     }
 
 }
