@@ -19,10 +19,10 @@ class HostFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lifecycleScope.launchWhenResumed {
-            (activity as? NavigationHolder)?.doNavigation(
-                navigationAction = NavigationAction.OpenDayCalendar()
-            )
-        }
+//        lifecycleScope.launchWhenResumed {
+//            (activity as? NavigationHolder)?.doNavigation(
+//                navigationAction = NavigationAction.OpenDayCalendar()
+//            )
+//        }
     }
 }
