@@ -5,50 +5,56 @@
     app:startDestination="@id/clientListFragment">
 
     <fragment
+        android:label="Хост"
         android:id="@+id/hostFragment"
         android:name="ru.pervov.lovenail.HostFragment">
     </fragment>
 
-
     <fragment
+        android:label="Мок"
         android:id="@+id/createMockFragment"
         android:name="ru.pervov.lovenail.mock_screen.fragment.CreateMockFragment">
     </fragment>
 
     <fragment
+        android:label="Клиенты"
         android:id="@+id/clientListFragment"
         android:name="ru.pervov.lovenail.client_list_screen.fragment.ClientListFragment">
     </fragment>
 
     <fragment
+        android:label="Создание клиентов"
         android:id="@+id/clientCreateFragment"
         android:name="ru.pervov.lovenail.client_create_screen.fragment.ClientCreateFragment">
     </fragment>
 
     <fragment
+        android:label="Процедуры"
         android:id="@+id/procedureListFragment"
         android:name="ru.pervov.lovenail.procedure_list_screen.fragment.ProcedureListFragment">
     </fragment>
 
     <fragment
+        android:label="Календарь День"
         android:id="@+id/dayCalendarFragment"
         android:name="ru.pervov.lovenail.day_calendar_screen.fragment.DayCalendarFragment">
     </fragment>
 
     <fragment
+        android:label="Создание процедуры"
         android:id="@+id/procedureCreateFragment"
         android:name="ru.pervov.lovenail.procedure_create_screen.fragment.ProcedureCreateFragment">
     </fragment>
 
     <fragment
+        android:label="Календарь Неделя"
         android:id="@+id/weekCalendarFragment"
         android:name="ru.pervov.lovenail.week_calendar_screen.fragment.WeekCalendarFragment">
     </fragment>
 
     <action
         android:id="@+id/action_global_clientListFragment"
-        app:destination="@id/clientListFragment"
-        app:popUpTo="@id/nav_graph" />
+        app:destination="@id/clientListFragment"/>
 
     <action
         android:id="@+id/action_global_clientCreateFragment"
@@ -69,7 +75,8 @@
         app:destination="@id/procedureCreateFragment" />
     <action
         android:id="@+id/action_global_dayCalendarFragment"
-        app:destination="@id/dayCalendarFragment" />
+        app:destination="@id/dayCalendarFragment"
+/>
 
 
 </navigation>

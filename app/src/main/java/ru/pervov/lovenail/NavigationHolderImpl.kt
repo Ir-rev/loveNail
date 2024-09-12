@@ -1,11 +1,19 @@
 package ru.pervov.lovenail
 
 import android.app.Activity
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
+import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
 import ru.pervov.lovenail.client_create_screen.fragment.CLIENT_ID
 import ru.pervov.lovenail.procedure_create_screen.fragment.PROCEDURE_ID
 import ru.pervov.lovenail.utils.NavigationAction
@@ -23,19 +31,29 @@ class NavigationHolderImpl(
         activity.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
     }
 
+    private val toolbar by lazy {
+        activity.findViewById<Toolbar>(R.id.toolbar)
+    }
+
     fun setUp() {
         navigationBar.setupWithNavController(navController)
-        navController.addOnDestinationChangedListener{ _, destination, _ ->
-            when(destination.id) {
+        toolbar.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
                 R.id.clientListFragment,
                 R.id.procedureListFragment,
                 R.id.dayCalendarFragment -> {
                     navigationBar.isVisible = true
                 }
+
                 else -> {
                     navigationBar.isVisible = false
                 }
             }
+
+            /** не понял как менять цвет, поэтому закостылил */
+            toolbar.navigationIcon?.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
         }
     }
 
@@ -44,10 +62,13 @@ class NavigationHolderImpl(
 
             // client
             is NavigationAction.OpenCreateOrUpdateClient -> {
-                navController.navigate(R.id.action_global_clientCreateFragment, args = Bundle().apply {
-                    putString(CLIENT_ID, navigationAction.clientId)
-                })
+                navController.navigate(
+                    R.id.action_global_clientCreateFragment,
+                    args = Bundle().apply {
+                        putString(CLIENT_ID, navigationAction.clientId)
+                    })
             }
+
             is NavigationAction.OpenClientList -> navController.navigate(R.id.action_global_clientListFragment)
 
             // calendar
