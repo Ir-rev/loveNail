@@ -16,5 +16,10 @@
         android:icon="@drawable/calendar_svg"
         android:title="@string/calendar_bottom_navigation_text" />
 
+    <item
+        android:id="@+id/createMockFragment"
+        android:icon="@drawable/icon_android"
+        android:title="@string/mock_screen_text" />
+
 
 </menu>

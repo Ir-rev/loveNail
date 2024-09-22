@@ -5,66 +5,78 @@
     android:layout_width="match_parent"
     android:paddingBottom="12dp"
     android:paddingTop="4dp"
+    android:paddingStart="4dp"
     android:layout_height="wrap_content"
     android:background="@color/black">
 
-    <TextView
-        android:id="@+id/date_textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="date_textView"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/start_work_time_textView"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/description_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="description_textView"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/time_textView"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/client_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="client_name_textView"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/description_textView"
+            app:layout_constraintStart_toStartOf="@id/description_textView"
+            />
+
+        <TextView
+            android:id="@+id/procedure_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="procedure_name_textView"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/client_name_textView"
+            app:layout_constraintStart_toStartOf="@id/client_name_textView"
+            />
+
+        <TextView
+            android:id="@+id/time_work_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="time_work_textView"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/procedure_name_textView"
+            app:layout_constraintStart_toStartOf="@id/procedure_name_textView"
+            />
+
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/description_textView"
+        android:id="@+id/start_work_time_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="description_textView"
-        android:textColor="@color/white"
-        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/client_name_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="client_name_textView"
         android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/description_textView"
-        app:layout_constraintStart_toStartOf="@id/description_textView"
-        />
+        android:text="18-45" />
 
-    <TextView
-        android:id="@+id/procedure_name_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="procedure_name_textView"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/client_name_textView"
-        app:layout_constraintStart_toStartOf="@id/client_name_textView"
-        />
-
-    <TextView
-        android:id="@+id/time_work_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="time_work_textView"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/procedure_name_textView"
-        app:layout_constraintStart_toStartOf="@id/procedure_name_textView"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,8 @@ import ru.pervov.lovenail.calendar_domain.model.EventDomain
 
 sealed class EventRecyclerItem {
 
-    class EmptyListItem() : EventRecyclerItem()
+    object EmptyListItem : EventRecyclerItem()
     class EventItem(val event: EventDomain) : EventRecyclerItem()
+    class FillerItem(val time: String) : EventRecyclerItem()
 
 }

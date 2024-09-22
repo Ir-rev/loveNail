@@ -12,10 +12,20 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/button_minusDay"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/date" />
+            android:layout_weight="1"
+            android:text="minus Day" />
+
+        <Button
+            android:id="@+id/button_addDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="add day" />
+
 
     </LinearLayout>
 

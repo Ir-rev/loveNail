@@ -11,5 +11,6 @@ android {
 dependencies {
 
     implementation(project(":sources:features:calendar:calendar_domain"))
+    implementation(project(":sources:features:utils:date_utils"))
     implementation(libs.glide)
 }

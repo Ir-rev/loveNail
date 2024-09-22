@@ -16,6 +16,9 @@ interface EventDao {
     @Query("SELECT * FROM Event WHERE id IN (:eventId)")
     fun loadAllByIds(eventId: String): List<Event>
 
+    @Query("SELECT * FROM Event WHERE dateStart BETWEEN (:startDate) AND (:endDate)")
+    fun getEventsByDate(startDate: Long, endDate: Long): List<Event>
+
     @Insert
     fun insertAll(vararg events: Event)
 

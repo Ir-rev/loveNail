@@ -3,4 +3,5 @@
     <string name="client_bottom_navigation_text">Клиенты</string>
     <string name="procedure_bottom_navigation_text">Процедуры</string>
     <string name="calendar_bottom_navigation_text">Календарь</string>
+    <string name="mock_screen_text">Mock</string>
 </resources>

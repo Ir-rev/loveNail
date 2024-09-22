@@ -39,8 +39,10 @@
             <option value="$PROJECT_DIR$/sources/features/procedure/procedure_list_screen" />
             <option value="$PROJECT_DIR$/sources/features/utils" />
             <option value="$PROJECT_DIR$/sources/features/utils/contact_reader" />
+            <option value="$PROJECT_DIR$/sources/features/utils/date_utils" />
             <option value="$PROJECT_DIR$/sources/features/utils/navigation" />
             <option value="$PROJECT_DIR$/sources/features/utils/permissions_getter" />
+            <option value="$PROJECT_DIR$/sources/features/utils/toolbar" />
             <option value="$PROJECT_DIR$/sources/features/utils/utils" />
             <option value="$PROJECT_DIR$/sources/mock" />
             <option value="$PROJECT_DIR$/sources/mock/mock_screen" />

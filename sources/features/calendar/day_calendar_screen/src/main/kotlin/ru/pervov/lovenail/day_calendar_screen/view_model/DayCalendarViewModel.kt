@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ru.pervov.lovenail.calendar_domain.api.CalendarEventUseCase
 import ru.pervov.lovenail.day_calendar_screen.adapter.EventRecyclerItem
+import java.time.LocalDate
 
 class DayCalendarViewModel(
     private val calendarEventUseCase: CalendarEventUseCase
@@ -23,10 +24,22 @@ class DayCalendarViewModel(
     private var fetchEventListJob: Job? = null
 
     init {
-        fetchEventList()
+        fetchEventList(LocalDate.now())
     }
 
-    fun fetchEventList() {
+    fun selectNextDay() {
+        val state = state.value
+        if (state !is DayCalendarViewModelState.Success) return
+        fetchEventList(state.date.plusDays(1))
+    }
+
+    fun selectPreviousDay() {
+        val state = state.value
+        if (state !is DayCalendarViewModelState.Success) return
+        fetchEventList(state.date.minusDays(1))
+    }
+
+    private fun fetchEventList(date: LocalDate) {
         fetchEventListJob?.cancel()
         viewModelScope.launch(Dispatchers.IO + CoroutineExceptionHandler { coroutineContext, throwable ->
             viewModelScope.launch {
@@ -38,16 +51,16 @@ class DayCalendarViewModel(
             }
         }) {
             _state.emit(DayCalendarViewModelState.Loading())
-            val allEventList = calendarEventUseCase.getEventList()
+            val allEventList = calendarEventUseCase.getEventForDay(date = date)
             val eventItemList = mutableListOf<EventRecyclerItem>()
             if (allEventList.isEmpty()) {
-                eventItemList.add(EventRecyclerItem.EmptyListItem())
+                eventItemList.add(EventRecyclerItem.EmptyListItem)
             } else {
                 eventItemList.addAll(allEventList.map {
                     EventRecyclerItem.EventItem(it)
                 })
             }
-            _state.emit(DayCalendarViewModelState.Success(eventItemList))
+            _state.emit(DayCalendarViewModelState.Success(date = date, eventList = eventItemList))
         }
     }
 

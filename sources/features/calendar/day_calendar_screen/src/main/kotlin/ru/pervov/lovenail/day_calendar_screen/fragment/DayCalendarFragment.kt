@@ -11,18 +11,24 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import ru.pervov.lovenail.day_calendar_screen.R
 import ru.pervov.lovenail.day_calendar_screen.adapter.DayCalendarAdapter
 import ru.pervov.lovenail.day_calendar_screen.databinding.FragmentDayCalendarBinding
+import ru.pervov.lovenail.day_calendar_screen.utils.DayCalendarAdapterFiller
 import ru.pervov.lovenail.day_calendar_screen.view_model.DayCalendarViewModel
 import ru.pervov.lovenail.day_calendar_screen.view_model.DayCalendarViewModelFactory
 import ru.pervov.lovenail.day_calendar_screen.view_model.DayCalendarViewModelState
+import ru.pervov.lovenail.toolbar.ToolBarHolder
 
 class DayCalendarFragment : Fragment() {
 
     private var viewModel: DayCalendarViewModel? = null
     private var binding: FragmentDayCalendarBinding? = null
+
+    private val dayCalendarAdapterFiller = DayCalendarAdapterFiller()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +59,15 @@ class DayCalendarFragment : Fragment() {
             .into(binding.imageViewLoading)
 
         binding.eventListRecyclerView.layoutManager = LinearLayoutManager(context)
-        lifecycleScope.launch {
+
+        binding.buttonAddDay.setOnClickListener {
+            viewModel.selectNextDay()
+        }
+        binding.buttonMinusDay.setOnClickListener {
+            viewModel.selectPreviousDay()
+        }
+
+        lifecycleScope.launch(Dispatchers.Main) {
             viewModel.state.collect { state ->
                 setVisibleErrorScreen(false)
                 setVisibleLoadingScreen(false)
@@ -61,10 +75,15 @@ class DayCalendarFragment : Fragment() {
                     is DayCalendarViewModelState.Error -> setVisibleErrorScreen(true)
                     is DayCalendarViewModelState.Loading -> setVisibleLoadingScreen(true)
                     is DayCalendarViewModelState.Success -> {
+                        val itemList = withContext(Dispatchers.Default) {
+                            dayCalendarAdapterFiller.fillEmptySpace(state.eventList)
+                        }
                         binding.eventListRecyclerView.adapter =
-                            DayCalendarAdapter(state.eventList) {
-                                Toast.makeText(requireContext(), "жмяк жмяк", Toast.LENGTH_SHORT).show()
+                            DayCalendarAdapter(itemList) {
+                                Toast.makeText(requireContext(), "жмяк жмяк", Toast.LENGTH_SHORT)
+                                    .show()
                             }
+                        (activity as ToolBarHolder).changeToolbarTitle(state.date.toString())
                     }
                 }
             }

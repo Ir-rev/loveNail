@@ -18,4 +18,6 @@ interface EventRepository {
 
     fun getEventById(id: String): Event?
 
+    fun getEventsByDate(startDate: Long, endDate: Long): List<Event>
+
 }

@@ -65,6 +65,7 @@ dependencies {
     implementation(project(":sources:features:utils:navigation"))
     implementation(project(":sources:features:utils:utils"))
     implementation(project(":sources:features:calendar:calendar_api"))
+    implementation(project(":sources:features:utils:toolbar"))
 
     // mock
     implementation(project(":sources:mock:mock_screen"))

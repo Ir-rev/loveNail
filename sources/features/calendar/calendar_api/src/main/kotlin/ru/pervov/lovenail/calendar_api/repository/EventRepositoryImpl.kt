@@ -42,6 +42,10 @@ internal class EventRepositoryImpl private constructor() : EventRepository {
         return eventDao.loadAllByIds(id).firstOrNull()
     }
 
+    override fun getEventsByDate(startDate: Long, endDate: Long): List<Event> {
+        return eventDao.getEventsByDate(startDate = startDate, endDate = endDate)
+    }
+
     private fun updateDataBase() {
         updateDataBaseJob?.cancel()
         updateDataBaseJob = scope.launch {

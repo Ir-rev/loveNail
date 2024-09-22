@@ -4,10 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import ru.pervov.lovenail.toolbar.ToolBarHolder
 import ru.pervov.lovenail.utils.NavigationAction
 import ru.pervov.lovenail.utils.NavigationHolder
 
-class MainActivity : AppCompatActivity(), NavigationHolder {
+class MainActivity : AppCompatActivity(), NavigationHolder, ToolBarHolder {
 
     private val navigationHolderImpl = NavigationHolderImpl(this)
 
@@ -23,5 +24,9 @@ class MainActivity : AppCompatActivity(), NavigationHolder {
 
     override fun doNavigation(navigationAction: NavigationAction) {
         navigationHolderImpl.doNavigation(navigationAction)
+    }
+
+    override fun changeToolbarTitle(newTitle: String) {
+        navigationHolderImpl.changeToolbarTitle(newTitle = newTitle)
     }
 }

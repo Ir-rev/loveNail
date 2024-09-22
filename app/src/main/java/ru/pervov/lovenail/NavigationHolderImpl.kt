@@ -1,27 +1,23 @@
 package ru.pervov.lovenail
 
 import android.app.Activity
-import android.graphics.BlendMode
-import android.graphics.BlendModeColorFilter
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
-import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
 import ru.pervov.lovenail.client_create_screen.fragment.CLIENT_ID
 import ru.pervov.lovenail.procedure_create_screen.fragment.PROCEDURE_ID
+import ru.pervov.lovenail.toolbar.ToolBarHolder
 import ru.pervov.lovenail.utils.NavigationAction
 import ru.pervov.lovenail.utils.NavigationHolder
 
 class NavigationHolderImpl(
     activity: Activity
-) : NavigationHolder {
+) : NavigationHolder, ToolBarHolder {
 
     private val navController by lazy {
         Navigation.findNavController(activity, R.id.nav_host_fragment)
@@ -87,5 +83,9 @@ class NavigationHolderImpl(
             // mock
             is NavigationAction.OpenCreateMock -> navController.navigate(R.id.action_global_createMockFragment)
         }
+    }
+
+    override fun changeToolbarTitle(newTitle: String) {
+        toolbar.title = newTitle
     }
 }

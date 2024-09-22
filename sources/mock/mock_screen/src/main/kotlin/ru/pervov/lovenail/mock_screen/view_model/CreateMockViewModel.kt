@@ -80,7 +80,24 @@ class CreateMockViewModel(
                 Event(
                     id = UUID.randomUUID().toString(),
                     dateStart = getTimePlusHours(timeNow,5),
-                    dateEnd = getTimePlusHours(timeNow,8),
+                    description = "description description description description description",
+                    clientId = clientsRepository.getAllClients().first().id,
+                    procedureId = procedureRepository.getAllProcedures().first().id,
+                )
+            )
+            eventRepository.addEvent(
+                Event(
+                    id = UUID.randomUUID().toString(),
+                    dateStart = getTimePlusHours(timeNow,50),
+                    description = "description description description description description",
+                    clientId = clientsRepository.getAllClients().first().id,
+                    procedureId = procedureRepository.getAllProcedures().first().id,
+                )
+            )
+            eventRepository.addEvent(
+                Event(
+                    id = UUID.randomUUID().toString(),
+                    dateStart = getTimePlusHours(timeNow,1),
                     description = "description description description description description",
                     clientId = clientsRepository.getAllClients().first().id,
                     procedureId = procedureRepository.getAllProcedures().first().id,

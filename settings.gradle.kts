@@ -51,6 +51,8 @@ include(":sources:features:utils:contact_reader")
 include(":sources:features:utils:permissions_getter")
 include(":sources:features:utils:navigation")
 include(":sources:features:utils:utils")
+include(":sources:features:utils:toolbar")
+include(":sources:features:utils:date_utils")
 
 // mock
 include(":sources:mock:mock_screen")
